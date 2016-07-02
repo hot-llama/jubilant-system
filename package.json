@@ -1,0 +1,26 @@
+{
+  "name": "typescreipt-starter",
+  "version": "0.0.1",
+  "description": "Webpack, TypeScript, postcss, ava for testing.",
+  "main": "./build/bundle.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --colors --content-base build/",
+    "test": "ava"
+  },
+  "repository": "https://github.com/JoshMilo/jubilant-system.git",
+  "keywords": [
+    "phaser"
+  ],
+  "author": "Josh Milo",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "css-loader": "^0.23.1",
+    "postcss-loader": "^0.9.1",
+    "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

@@ -1,0 +1,6 @@
+$primary: #ad97c6;
+$secondary: red;
+
+body {
+  background-color: $primary;
+}
