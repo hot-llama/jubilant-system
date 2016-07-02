@@ -19,6 +19,9 @@ module.exports = {
         test: /\.tsx?$/, loader: "ts-loader"
       },
       {
+        test: /(pixi|phaser).js/, loader: "script"
+      },
+      {
         test: /\.css$/,
         loaders: ["style", "css", "postcss-loader"]
       }

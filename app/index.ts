@@ -1,6 +1,21 @@
-import Point from './mod';
-import './styles/index.css';
+import * as _ from 'lodash';
 
-let myPoint = new Point(6600,300);
-console.log("point", myPoint);
-myPoint.display();
+
+class Game extends Phaser.Game {
+
+    options: Object;
+    width: number;
+    height: number;
+
+    constructor(width, height) {
+
+        const options = {
+            width,
+            height
+        };
+
+        super(options);
+    }
+}
+
+const game = new Game(800, 600);

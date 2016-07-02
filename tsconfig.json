@@ -3,7 +3,6 @@
     "outDir": "./build/",
     "target": "es5",
     "module": "commonjs",
-    "noImplicitAny": true,
     "sourceMap": true
   },
   "exclude": [

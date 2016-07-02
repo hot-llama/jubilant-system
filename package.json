@@ -17,6 +17,7 @@
     "ava": "^0.15.2",
     "css-loader": "^0.23.1",
     "phaser": "^2.5.0",
+    "phaser-shim": "^2.4.8",
     "postcss": "^5.0.21",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
