@@ -1,9 +1,13 @@
 var path = require('path');
+var webpack = require('webpack');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: "./app/index.ts",
+  entry: {
+    app: "./app/index.ts",
+    includes: './app/includes.js'
+  },
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js"
@@ -33,5 +37,6 @@ module.exports = {
   },
   postcss: function() {
     return [precss, autoprefixer]
-  }
+  },
+  plugins: [new webpack.optimize.CommonsChunkPlugin('includes', 'includes.bundle.js')]
 };

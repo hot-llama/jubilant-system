@@ -1,6 +1,4 @@
 import * as _ from 'lodash';
-
-
 class Game extends Phaser.Game {
 
     options: Object;
@@ -14,7 +12,7 @@ class Game extends Phaser.Game {
             height
         };
 
-        super(options);
+        super({width, height});
     }
 }
 
