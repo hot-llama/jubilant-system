@@ -1,5 +1,5 @@
 {
-  "name": "typescreipt-starter",
+  "name": "spork",
   "version": "0.0.1",
   "description": "Webpack, TypeScript, postcss, ava for testing.",
   "main": "./build/bundle.js",
@@ -7,9 +7,9 @@
     "start": "webpack-dev-server --inline --colors --content-base build/",
     "test": "ava"
   },
-  "repository": "https://github.com/JoshMilo/jubilant-system.git",
+  "repository": "https://github.com/JoshMilo/spork",
   "keywords": [
-    "phaser"
+    "typescript, postcss, ava, starter, boilerplate"
   ],
   "author": "Josh Milo",
   "license": "MIT",
