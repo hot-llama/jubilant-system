@@ -7,7 +7,7 @@ const height = window.innerHeight;
 
 class Game extends Phaser.Game {
 	constructor(width, height) {
-    super(width, height, Phaser.AUTO, 'content', null);
+		super(width, height, Phaser.AUTO, 'content', null);
 
 		this.state.add('GameState', GameState, false);
     this.state.add('StateB', StateB, false);
