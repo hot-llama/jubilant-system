@@ -1,5 +1,5 @@
 import GameState from 'states/GameState';
-import StateB from 'states/StateB';
+import GameWorld from 'states/GameWorld';
 
 
 const width = window.innerWidth;
@@ -10,7 +10,7 @@ class Game extends Phaser.Game {
 		super(width, height, Phaser.AUTO, 'content', null);
 
 		this.state.add('GameState', GameState, false);
-    this.state.add('StateB', StateB, false);
+    this.state.add('GameWorld', GameWorld, false);
 		this.state.start('GameState');
 	}
 }
