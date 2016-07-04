@@ -12,6 +12,10 @@ class GameState extends Phaser.State {
 
     this.state.start('GameWorld', true, false);
 	}
+  
+  update() {
+    
+  }
 }
 
 export default GameState;

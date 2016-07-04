@@ -9,7 +9,8 @@ class Game extends Phaser.Game {
 		this.state.add('GameState', GameState, false);
     this.state.add('GameWorld', GameWorld, false);
 		this.state.start('GameState');
-	}
+
+  }
 }
 
 new Game(width, height);
