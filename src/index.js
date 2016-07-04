@@ -1,9 +1,6 @@
 import GameState from 'states/GameState';
 import GameWorld from 'states/GameWorld';
-
-
-const width = window.innerWidth;
-const height = window.innerHeight;
+import {width, height} from './constants';
 
 class Game extends Phaser.Game {
 	constructor(width, height) {

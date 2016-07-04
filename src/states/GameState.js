@@ -1,7 +1,11 @@
 class GameState extends Phaser.State {
+  constructor() {
+    super();
+  }
+
   preload() {
-    this.load.image('background', '../assets/wave.jpg');
-    this.load.image('monkey', '../assets/n11.png');
+    this.load.image('background', '../assets/dirt-tile.png');
+    this.load.spritesheet('monkey', '../assets/n11.png', 30, 30);
   }
 
 	create() {
