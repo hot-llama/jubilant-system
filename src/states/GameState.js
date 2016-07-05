@@ -10,12 +10,10 @@ class GameState extends Phaser.State {
   }
 
 	create() {
-
     this.state.start('GameWorld', true, false);
 	}
-  
+
   update() {
-    
   }
 }
 
