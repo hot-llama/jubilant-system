@@ -1,8 +1,7 @@
 import { width, height } from "../constants";
 
 class GameWorld extends Phaser.State {
-
-  create() {
+  preload() {
     // Setup
     this.add.tileSprite(0, 0, width, height, 'background');
     this.cursors = this.game.input.keyboard.createCursorKeys();
