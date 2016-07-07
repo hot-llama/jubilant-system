@@ -11,6 +11,10 @@ class GameWorld extends Phaser.State {
     this.monkey = this.createActor('monkey', this.world.centerX, this.world.centerY);
   }
 
+  create() {
+    this.physics.startSystem(Phaser.Physics.ARCADE)
+  }
+
   update() {
     this.wizard.body.velocity.x = 0;
     this.wizard.body.velocity.y = 0;
@@ -35,6 +39,8 @@ class GameWorld extends Phaser.State {
       this.wizard.animations.stop();
       this.wizard.frame = 1;
     }
+
+    this.physics.arcade.collide(this.wizard, this.monkey, this.collideHandler, null, this)
   }
 
   render() {
@@ -52,7 +58,7 @@ class GameWorld extends Phaser.State {
     const newActor = this.add.sprite(postionX, positionY, `${actor}`);
 
     //Instantiate Actor
-    this.physics.arcade.enable(newActor);
+    this.physics.enable(newActor);
     newActor.body.collideWorldBounds = true;
 
     // Add walk animations to Actor
@@ -62,6 +68,10 @@ class GameWorld extends Phaser.State {
     newActor.animations.add('up', [9, 10, 11], 10, true);
 
     return newActor;
+  }
+
+  collideHandler(actor, actor2) {
+    console.log("COLLIDE", actor, actor2);
   }
 }
 
