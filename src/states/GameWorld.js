@@ -4,11 +4,11 @@ class GameWorld extends Phaser.State {
   preload() {
     // Setup
     this.add.tileSprite(0, 0, width, height, 'background');
-    this.cursors = this.game.input.keyboard.createCursorKeys();
+    this.cursors = this.input.keyboard.createCursorKeys();
 
     // Actors
     this.wizard = this.createActor('wizard', 300, 200);
-    this.monkey = this.createActor('monkey', this.game.world.centerX, this.game.world.centerY);
+    this.monkey = this.createActor('monkey', this.world.centerX, this.world.centerY);
   }
 
   update() {
@@ -49,7 +49,7 @@ class GameWorld extends Phaser.State {
    * @returns new Actor Object
    */
   createActor(actor, postionX, positionY) {
-    const newActor = this.game.add.sprite(postionX, positionY, `${actor}`);
+    const newActor = this.add.sprite(postionX, positionY, `${actor}`);
 
     //Instantiate Actor
     this.physics.arcade.enable(newActor);
