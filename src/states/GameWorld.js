@@ -7,7 +7,7 @@ class GameWorld extends Phaser.State {
     this.cursors = this.input.keyboard.createCursorKeys();
 
     // Actors
-    this.wizard = this.createActor('wizard', 300, 200);
+    this.wizard = this.createActor('wizard', 100, 200);
     this.monkey = this.createActor('monkey', this.world.centerX, this.world.centerY);
   }
 
@@ -18,29 +18,11 @@ class GameWorld extends Phaser.State {
   update() {
     this.wizard.body.velocity.x = 0;
     this.wizard.body.velocity.y = 0;
+    this.moveActor(this.cursors, this.wizard);
 
-    if (this.cursors.left.isDown) {
-      this.wizard.body.velocity.x = -150;
-      this.wizard.animations.play('left');
-    }
-    else if (this.cursors.right.isDown) {
-      this.wizard.body.velocity.x = 150;
-      this.wizard.animations.play('right');
-    }
-    else if (this.cursors.up.isDown) {
-      this.wizard.body.velocity.y = -150;
-      this.wizard.animations.play('up');
-    }
-    else if (this.cursors.down.isDown) {
-      this.wizard.body.velocity.y = 150;
-      this.wizard.animations.play('down');
-    }
-    else {
-      this.wizard.animations.stop();
-      this.wizard.frame = 1;
-    }
+    this.physics.arcade.collide(this.wizard, this.monkey, this.collideHandler, null, this);
 
-    this.physics.arcade.collide(this.wizard, this.monkey, this.collideHandler, null, this)
+
   }
 
   render() {
@@ -49,13 +31,13 @@ class GameWorld extends Phaser.State {
 
   /**
    * Creates a new Actor for the world.
-   * @param actor - string
-   * @param postionX - number
-   * @param positionY - number
-   * @returns new Actor Object
+   * @param { string } key - string key to reference actor sprite
+   * @param { number } positionX - position to place sprite X axis
+   * @param { number } positionY - position to place sprite Y axis
+   * @returns { Object }  new Actor Object
    */
-  createActor(actor, postionX, positionY) {
-    const newActor = this.add.sprite(postionX, positionY, `${actor}`);
+  createActor(key, postionX, positionY) {
+    const newActor = this.add.sprite(postionX, positionY, `${key}`);
 
     //Instantiate Actor
     this.physics.enable(newActor);
@@ -70,11 +52,47 @@ class GameWorld extends Phaser.State {
     return newActor;
   }
 
+  /**
+   * Prevents players from flying away after a collision.
+   * @param { Object } actor - sprite Object  
+   * @param { Object } actor2 - sprite Object
+   * @returns void
+   */
   collideHandler(actor, actor2) {
     console.log("COLLIDE", actor, actor2);
     actor2.body.velocity.x = 0;
     actor2.body.velocity.y = 0;
   }
+
+  /**
+   * Prevents players from flying away after a collision.
+   * @param { Object } - reference to cursors object
+   * @param { Object }  - reference to sprite object
+   * @returns 
+   */
+  moveActor(cursors, actor) {
+    if (this.cursors.left.isDown) {
+      actor.body.velocity.x = -150;
+      actor.animations.play('left');
+    }
+    else if (this.cursors.right.isDown) {
+      actor.body.velocity.x = 150;
+      actor.animations.play('right');
+    }
+    else if (this.cursors.up.isDown) {
+      actor.body.velocity.y = -150;
+      actor.animations.play('up');
+    }
+    else if (this.cursors.down.isDown) {
+      actor.body.velocity.y = 150;
+      actor.animations.play('down');
+    }
+    else {
+      actor.animations.stop();
+      actor.frame = 1;
+    }
+  }
+
 }
 
 export default GameWorld;
