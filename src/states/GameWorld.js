@@ -44,7 +44,7 @@ class GameWorld extends Phaser.State {
   }
 
   render() {
-    this.game.debug.spriteInfo(this.wizard, 32, 32);
+    // this.game.debug.spriteInfo(this.wizard, 32, 32);
   }
 
   /**
@@ -72,6 +72,8 @@ class GameWorld extends Phaser.State {
 
   collideHandler(actor, actor2) {
     console.log("COLLIDE", actor, actor2);
+    actor2.body.velocity.x = 0;
+    actor2.body.velocity.y = 0;
   }
 }
 
