@@ -1,18 +1,27 @@
 import { width, height } from "../constants";
+import SpeechBubble from "../SpeechBubble";
 
 class GameWorld extends Phaser.State {
   preload() {
     // Setup
     this.add.tileSprite(0, 0, width, height, 'background');
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.game.time.advancedTiming = true;
+    this.game.stage.smoothed = false;
+
 
     // Actors
     this.wizard = this.createActor('wizard', 100, 200);
     this.monkey = this.createActor('monkey', this.world.centerX, this.world.centerY);
-  }
+  } 
 
   create() {
-    this.physics.startSystem(Phaser.Physics.ARCADE)
+    this.physics.startSystem(Phaser.Physics.ARCADE);
+
+    var bubble = new SpeechBubble(this.game, 180, 190, 256, "This is some text which will be automagically wrapped. homey chubbs");
+
+    this.game.world.add(bubble);
+
   }
 
   update() {
@@ -92,6 +101,7 @@ class GameWorld extends Phaser.State {
       actor.frame = 1;
     }
   }
+
 
 }
 
