@@ -18,7 +18,7 @@ class GameWorld extends Phaser.State {
   create() {
     this.physics.startSystem(Phaser.Physics.ARCADE);
 
-    var bubble = new SpeechBubble(this.game, 180, 190, 256, "This is some text which will be automagically wrapped. homey chubbs");
+    var bubble = new SpeechBubble(this.game, 399, 400, 256, "This is some text which will be automagically wrapped. homey chubbs");
 
     this.game.world.add(bubble);
 
